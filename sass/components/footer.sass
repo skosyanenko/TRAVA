@@ -1,0 +1,26 @@
+@import '../include/config'
+
+.footer-wrapper
+  background: $orange
+  max-width: calc(100% - 220px)
+  margin-left: auto
+  width: 100%
+  height: 60px
+  display: flex
+  justify-content: center
+  align-items: center
+  +maxwidth($desktop)
+    max-width: calc(100% - 150px)
+    height: 50px
+  +maxwidth($tablet)
+    max-width: 100%
+    height: 60px
+
+  &__logo
+    background: url('../images/icons/logo.svg') no-repeat
+    background-size: contain
+    width: 50px
+    height: 50px
+    +maxwidth($desktop)
+      width: 40px
+      height: 40px

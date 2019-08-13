@@ -1,0 +1,32 @@
+@import '../include/config'
+
+.wrapper
+  &__about-us
+    grid-area: about
+    +maxwidth($tablet)
+      order: 7
+
+    &-img
+      grid-row-start: 2
+      grid-row-end: 3
+      grid-area: about-image
+      overflow: hidden
+      +maxwidth($tablet)
+        grid-row-start: 5
+        grid-row-end: 6
+        order: 6
+
+    &-image
+      background: url("../images/about/1.jpg") no-repeat center / cover
+      height: 70vh
+      transform: translateX(-20vw)
+      transition: all .5s ease
+      opacity: 0
+      +maxwidth($mobail)
+        height: 60vh
+      +maxwidth($sm-mobail)
+        height: 45vh
+      +maxwidth($min-width)
+        height: 25vh
+      &.active
+        @extend %active

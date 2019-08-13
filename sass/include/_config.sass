@@ -1,0 +1,172 @@
+// Шрифты
+// ===================
+
+@mixin font($f-name, $f-style, $f-weight, $f-url)
+  @font-face
+    font-family: $f-name
+    font-style: $f-style
+    font-weight: $f-weight
+    src: url($f-url) format('woff')
+
+// WaverlyCF (основной шрифт)
+@include font('Waverly CF', normal, 100, '../fonts/WaverlyCF-Thin.woff2')
+@include font('Waverly CF', normal, 300, '../fonts/WaverlyCF-Light.woff2')
+@include font('Waverly CF', normal, 500, '../fonts/WaverlyCF-Medium.woff2')
+@include font('Waverly CF Demi', normal, 600, '../fonts/WaverlyCF-DemiBold.woff2')
+@include font('Waverly CF', normal, bold, '../fonts/WaverlyCF-Bold.woff2')
+@include font('Waverly CF Extra', normal, 800, '../fonts/WaverlyCF-ExtraBold.woff2')
+
+$waverly: 'Waverly CF'
+$waverlyDemi: 'Waverly CF Demi'
+$waverlyExtra: 'Waverly CF Extra'
+
+// Цвета
+// ===================
+
+$black: #000000
+$darkgray: #444444
+$gray: #808080
+$white: #ffffff
+$green: rgba(0,82,71, 0.8)
+$orange: #FFCC73
+
+// Основные разрешения
+// ===================
+
+$max-width: 1320px
+$desktop: 1330px
+$sm-desktop: 1280px
+$tablet: 991px
+$mobail: 767px
+$sm-mobail: 575px
+$min-width: 320px
+
+=maxwidth($w)
+  @media only screen and (max-width: $w)
+    @content
+
+
+
+@keyframes column
+  0%
+    height: 0
+
+  100%
+    height: 100%
+
+// Форматирование текста
+// ===================
+
+%sectiontitle
+    color: $green
+    font: bold 80px/100% $waverly
+    padding-bottom: 10px
+    width: fit-content
+    border-bottom: 10px solid $green
+    +maxwidth($desktop)
+        font: bold 70px/100% $waverly
+        padding-bottom: 7px
+        border-bottom: 8px solid $green
+    +maxwidth($tablet)
+        font: bold 60px/100% $waverly
+        padding-bottom: 6px
+        border-bottom: 7px solid $green
+    +maxwidth($mobail)
+        font: bold 34px/100% $waverly
+        padding-bottom: 5px
+        border-bottom: 5px solid $green
+
+%sectionsubtitle
+    font: bold 30px/100% $waverly
+    color: $darkgray
+    margin-top: 40px
+    +maxwidth($tablet)
+        font: bold 20px/100% $waverly
+        margin-top: 30px
+    +maxwidth($mobail)
+        font: bold 16px/100% $waverly
+        margin-top: 20px
+
+%sectiontext
+    font: 100 18px/100% $waverly
+    color: $gray
+    margin-top: 30px
+    text-align: justify
+    +maxwidth($tablet)
+        font: 300 16px/100% $waverly
+        margin-top: 20px
+    +maxwidth($mobail)
+        font: 300 14px/100% $waverly
+        margin-top: 15px
+
+%active
+    transform: translateX(0)
+    opacity: 1
+
+
+*::selection
+    background-color: $orange
+
+body
+    margin: 0
+    padding: 0
+
+main
+    width: 100%
+    display: grid
+    grid-template-columns: repeat(8, 1fr)
+    grid-template-rows: 100vh
+    grid-template-areas:  " . plants plants plants plants plants-image plants-image plants-image"  "pots-image pots-image pots-image pots-image pots-image pots pots pots "  " . about about about-image about-image about-image about-image about-image " " . adv adv adv adv adv adv . "
+    position: relative
+    margin-left: 220px
+    +maxwidth($desktop)
+        margin-left: 150px
+    +maxwidth($tablet)
+        display: flex
+        flex-direction: column
+        margin-left: 0
+        margin-top: 70px
+        grid-template-columns: repeat(3, 1fr)
+        grid-template-areas:  " plants plants plants" "plants-image plants-image plants-image" "pots pots pots " "pots-image pots-image pots-image"   "about about about" "about-image about-image about-image" "adv adv adv"
+
+nav
+    display: flex
+    flex-direction: column
+    +maxwidth($tablet)
+        display: none
+
+.nav-link
+    transform: translateX(0)
+    transition: transform .5s ease
+    text-decoration: none
+    font: bold 25px/100% $waverly
+    color: $darkgray
+    margin-top: 50px
+    padding-bottom: 5px
+    position: relative
+    width: fit-content
+    +maxwidth($desktop)
+        margin-top: 30px
+        font: bold 20px/100% $waverly
+        padding-bottom: 3px
+    &:after
+        content: ""
+        position: absolute
+        bottom: 0
+        left: 0
+        height: 2px
+        width: 0
+        background-color: $green
+        opacity: 0.8
+        transition: all .3s ease
+    &:hover:after
+        width: 100%
+    &:hover
+        color: $green
+    &.close
+        transform: translateX(-15vw)
+
+.wrapper
+    width: 100%
+    min-width: 100%
+    display: flex

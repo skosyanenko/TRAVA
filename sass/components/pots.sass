@@ -1,0 +1,39 @@
+@import '../include/config'
+
+.wrapper
+  &__pots
+    grid-area: pots
+    +maxwidth($tablet)
+      order: 5
+
+    &-img
+      grid-row-start: 1
+      grid-row-end: 2
+      grid-area: pots-image
+      overflow: hidden
+      +maxwidth($tablet)
+        grid-row-start: 3
+        grid-row-end: 4
+        order: 4
+
+    &-image
+      background: url("../images/pots/1.jpg") no-repeat center / cover
+      height: 70vh
+      transform: translateX(-20vw)
+      transition: all .5s ease
+      opacity: 0
+      +maxwidth($mobail)
+        height: 60vh
+      +maxwidth($sm-mobail)
+        height: 45vh
+      +maxwidth($min-width)
+        height: 25vh
+      &.active
+        @extend %active
+
+    &-title
+      margin-left: calc((100vw - 220px) / -8 + 3px)
+      +maxwidth($desktop)
+        margin-left: calc((100vw - 150px) / -8 + 3px)
+      +maxwidth($tablet)
+        margin-left: 0

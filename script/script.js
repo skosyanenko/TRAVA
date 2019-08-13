@@ -1,12 +1,16 @@
 $(document).ready(function() {
 
     $('.burger').on('click', function(){
-        let time = 0;
         $(this).toggleClass('open'); // меняется сам бургер
-        $('.nav-link').each(function( index, el ) {
-           time += 200;
-           setTimeout(() => $(el).toggleClass('close'), time); // меняется каждая ссылка
-        });
+        if ($(window).width() <= 991) {
+            $('.mobile-menu').toggleClass('show');
+        } else {
+            let time = 0;
+            $('.nav-link').each(function( index, el ) {
+                time += 200;
+                setTimeout(() => $(el).toggleClass('close'), time); // меняется каждая ссылка
+            });
+        }
     });
 
     $('.wrapper__sidebar-loupe').on('click', function(){

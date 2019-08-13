@@ -1,0 +1,117 @@
+@import '../include/config'
+
+.wrapper
+  &__sidebar
+    display: flex
+    flex-direction: column
+    justify-content: start
+    align-items: center
+    max-width: 220px
+    width: 100%
+    height: 100vh
+    visibility: visible
+    position: fixed
+    z-index: 40
+    overflow: hidden
+    transform: translateX(-20vw)
+    transition: all .5s ease
+    opacity: 0
+    +maxwidth($desktop)
+      max-width: 150px
+    +maxwidth($tablet)
+      background: $white
+      flex-direction: row
+      justify-content: center
+      align-items: center
+      height: 70px
+      max-width: 100%
+    &.active
+      @extend %active
+
+    &-nav
+      margin-top: 30vh
+      display: flex
+      flex-direction: column
+      height: 100vh
+      +maxwidth($tablet)
+        margin-top: 0
+        flex-direction: row
+        height: 100%
+        align-items: center
+
+
+    &-contacts
+      width: 200px
+      padding-left: 20px
+      height: 60px
+      display: flex
+      align-items: center
+      bottom: 0
+      text-decoration: none
+      font: bold 25px/100% $waverly
+      color: $orange
+      background: $green
+      position: absolute
+      +maxwidth($desktop)
+        width: 130px
+        height: 50px
+        font: bold 20px/100% $waverly
+      +maxwidth($tablet)
+        display: none
+      &:after
+        content: ""
+        height: 100%
+        top: 0
+        left: 0
+        position: absolute
+        z-index: -1
+        background-color: rgba(0,82,71, 0.5)
+        width: 0
+        transition: width .3s cubic-bezier(.645,.045,.355,1)
+      &:hover:after
+        width: 100%
+    &-search
+      margin-bottom: 15vh
+      width: 100%
+      height: 60px
+      display: flex
+      justify-content: center
+      +maxwidth($desktop)
+        height: 50px
+      +maxwidth($tablet)
+        display: none
+
+      form
+        position: relative
+        display: flex
+
+    &-loupe
+      width: 30px
+      height: 30px
+      opacity: 0.8
+      cursor: pointer
+      position: absolute
+      margin-top: 10px
+      right: 20px
+
+    &-search-input
+      height: 50px
+      display: flex
+      justify-content: center
+      font: 100 18px/100% $waverly
+      padding-left: 20px
+      color: $green
+      border: 0
+      background: transparent
+      width: 0
+      outline: none
+      transition: all .3s ease
+      margin-bottom: 15vh
+      border-radius: 30px
+      +maxwidth($desktop)
+        font: 100 16px/100% $waverly
+      &.active
+        width: 180px
+        border: 1px solid $green
+        +maxwidth($desktop)
+          width: 110px
