@@ -15,6 +15,7 @@ $(document).ready(function() {
 
     $('.wrapper__sidebar-loupe').on('click', function(){
         $('.wrapper__sidebar-search-input').toggleClass('active').focus();
+        $('.wrapper__sidebar-loupe').toggleClass('active')
     });
 
     $('.nav-link').on('click', function() {
@@ -38,7 +39,7 @@ $(document).ready(function() {
 
             // проверяем, если этот элемент принадлежит к тем,
             // которые внизу страницы, то увеличиваем разницу diff
-            ($(el).hasClass('wrapper__advantages-column')) ? diff = 1100 : '';
+            ($(el).hasClass('wrapper__advantages-column') || $(el).hasClass('footer-wrapper') || $(el).hasClass('wrap__pagination') || $(el).hasClass('wrapper__socials-wrap')) ? diff = 1100 : '';
 
             if (windowScroll >= elementTop - diff) {
                 setTimeout(() => {
@@ -46,15 +47,5 @@ $(document).ready(function() {
                 }, time);
             }
         });
-    });
-
-    $('.wrapper__advantages-button').on('click', function(){
-        let btnFlag = 'active-button';
-
-        if(!$(this).hasClass(btnFlag)) {
-            $('.wrapper__advantages-range').toggleClass('range-none')
-        }
-        $('.wrapper__advantages-button').removeClass(btnFlag);
-        $(this).addClass(btnFlag);
     });
 });

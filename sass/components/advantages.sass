@@ -1,182 +1,184 @@
 @import '../include/config'
 
 .wrapper
+
   &__advantages
-    grid-area: adv
-    margin-top: 60px
-    display: flex
-    flex-direction: column
-    align-items: flex-end
-    overflow: hidden
-    +maxwidth($tablet)
-      margin-top: 0
-      padding: 40px
-      order: 8
-    +maxwidth($mobail)
-      padding: 30px
-    +maxwidth($min-width)
-      padding: 20px
-
-    &-title
-      @extend %sectiontitle
-      margin-bottom: 40px
-      justify-content: flex-end
-      transform: translateX(-20vw)
-      transition: all .5s ease
-      opacity: 0
-      +maxwidth($tablet)
-        margin: 0 auto 30px
-      &.active
-        @extend %active
-
-    &-buttons
-      display: flex
-      justify-content: center
-      font: 500 18px/100% $waverly
-      color: $green
-      margin: 0 auto
-      transition: all .8s ease
-      opacity: 0
-      +maxwidth($tablet)
-        font: 500 15px/100% $waverly
-      +maxwidth($mobail)
-        font: 500 12px/100% $waverly
-      +maxwidth(460px)
-        max-width: 100%
-      &.active
-        opacity: 1
-
-    &-button
-      display: flex
-      justify-content: center
-      align-items: center
-      width: 200px
-      height: 40px
-      margin-right: 20px
-      background: rgba(255, 204, 115, 0.8)
-      position: relative
-      cursor: pointer
-      +maxwidth(460px)
-        max-width: 100%
-      &:last-child
-        margin-right: 0
-      &:after
-        content: ""
-        height: 100%
-        top: 0
-        left: 0
-        position: absolute
-        z-index: -1
-        background-color: rgba(255, 204, 115, 1)
-        width: 0
-        transition: width .3s cubic-bezier(.645,.045,.355,1)
-      &:hover:after
-        width: 100%
-      &.active-button
-        background-color: rgba(255, 204, 115, 1)
-
-    &-range
-      display: flex
-      margin-top: 40px
-      margin-bottom: 60px
-      width: 100%
-      justify-content: space-between
-      transition: all .4s ease
-      +maxwidth($tablet)
-        margin-bottom: 0
-        margin-top: 35px
-      +maxwidth($mobail)
-        margin-top: 30px
-        flex-direction: column
-      +maxwidth($min-width)
-        margin-top: 25px
-      &.range-none
-        margin: 0
-        height: 0
-        opacity: 0
-        overflow: hidden
-      &.range-center
-        justify-content: center
-
-    &-column
-      min-height: 205px
+      grid-area: adv
+      margin-top: 60px
       display: flex
       flex-direction: column
-      justify-content: flex-start
-      align-items: center
-      width: calc(100%/3 + 15px)
-      padding-left: 30px
+      align-items: flex-end
       overflow: hidden
-      transform: translateY(20vh)
-      transition: all .5s ease
-      opacity: 0
-      +maxwidth($mobail)
-        min-height: 175px
-        width: 100%
-        padding: 0
-        margin: 0 auto 30px
-      &.active
-        @extend %active
-      &:first-child
-        padding-left: 0
-
-    &-column-img
-      width: 90px
-      height: 90px
-      border-radius: 50%
-      display: flex
+      z-index: 2
       +maxwidth($tablet)
-        width: 80px
-        height: 80px
+          margin-top: 0
+          padding: 40px
+          order: 8
       +maxwidth($mobail)
-        width: 70px
-        height: 70px
+          padding: 30px
       +maxwidth($min-width)
-        width: 60px
-        height: 60px
-      &.icon-1
-        background: $green url("../images/icons/hand.svg") no-repeat center / cover
-        background-size: 60px
-      &.icon-2
-        background: $green url("../images/icons/shipped.svg") no-repeat center / contain
-        background-size: 60px
-      &.icon-3
-        background: $green url("../images/icons/idea.svg") no-repeat center / contain
-        background-size: 60px
-      &.icon-4
-        background: $green url("../images/icons/plant.svg") no-repeat center / contain
-        background-size: 60px
-      &.icon-5
-        background: $green url("../images/icons/bouquet.svg") no-repeat center / contain
-        background-size: 60px
-      &.icon-1,  &.icon-2, &.icon-3, &.icon-4, &.icon-5
-        +maxwidth($tablet)
-          background-size: 50px
-        +maxwidth($mobail)
-          background-size: 40px
-        +maxwidth($min-width)
-          background-size: 30px
+          padding: 20px
 
-    &-column-title
-      font: bold 20px/100% $waverly
-      color: $darkgray
-      margin-top: 30px
-      +maxwidth($tablet)
-        font: bold 18px/100% $waverly
-        margin-top: 25px
-      +maxwidth($mobail)
-        font: bold 16px/100% $waverly
-        margin-top: 20px
+      &-title
+          @extend %sectiontitle
+          margin-bottom: 40px
+          justify-content: flex-end
+          transform: translateX(-20vw)
+          transition: all .5s ease
+          opacity: 0
+          +maxwidth($tablet)
+              margin: 0 auto 30px
+          &.active
+              @extend %active
 
-    &-column-text
-      font: bold 15px/100% $waverly
-      color: $darkgray
-      margin-top: 20px
-      text-align: justify
-      +maxwidth($tablet)
-        font: bold 14px/100% $waverly
-        margin-top: 20px
-      +maxwidth($mobail)
-        text-align: center
-        font: bold 14px/100% $waverly
-        margin-top: 15px
+      &-buttons
+          margin: 0 auto
+          display: flex
+          justify-content: center
+          font: 500 18px/100% $waverly
+          color: $green
+          transition: all .8s ease
+          opacity: 0
+          +maxwidth($tablet)
+              font: 500 15px/100% $waverly
+          +maxwidth($mobail)
+              font: 500 12px/100% $waverly
+          +maxwidth(460px)
+              max-width: 100%
+          &.active
+              opacity: 1
+
+      &-button
+          width: 200px
+          height: 40px
+          display: flex
+          margin-right: 20px
+          justify-content: center
+          align-items: center
+          position: relative
+          background: rgba(255, 204, 115, 0.8)
+          cursor: pointer
+          +maxwidth(460px)
+              max-width: 100%
+          &:last-child
+              margin-right: 0
+          &:after
+              content: ""
+              width: 0
+              height: 100%
+              top: 0
+              left: 0
+              position: absolute
+              z-index: -1
+              background-color: rgba(255, 204, 115, 1)
+              transition: width .3s cubic-bezier(.645,.045,.355,1)
+          &:hover:after
+              width: 100%
+          &.active-button
+              background-color: rgba(255, 204, 115, 1)
+
+      &-range
+          width: 100%
+          margin-top: 40px
+          margin-bottom: 60px
+          display: flex
+          justify-content: space-between
+          transition: all .4s ease
+          +maxwidth($tablet)
+              margin-bottom: 0
+              margin-top: 35px
+          +maxwidth($mobail)
+              margin-top: 30px
+              flex-direction: column
+          +maxwidth($min-width)
+              margin-top: 25px
+          &.range-none
+              margin: 0
+              height: 0
+              opacity: 0
+              overflow: hidden
+          &.range-center
+              justify-content: center
+
+      &-column
+          width: calc(100%/3 + 15px)
+          min-height: 205px
+          padding-left: 30px
+          display: flex
+          flex-direction: column
+          justify-content: flex-start
+          align-items: center
+          overflow: hidden
+          transform: translateY(20vh)
+          transition: all .5s ease
+          opacity: 0
+          +maxwidth($mobail)
+              min-height: 175px
+              width: 100%
+              padding: 0
+              margin: 0 auto 30px
+          &.active
+              @extend %active
+          &:first-child
+              padding-left: 0
+
+      &-column-img
+          width: 90px
+          height: 90px
+          border-radius: 50%
+          display: flex
+          +maxwidth($tablet)
+              width: 80px
+              height: 80px
+          +maxwidth($mobail)
+            width: 70px
+            height: 70px
+          +maxwidth($min-width)
+              width: 60px
+              height: 60px
+          &.icon-1
+              background: $green url("icons/hand.svg") no-repeat center / cover
+              background-size: 60px
+          &.icon-2
+              background: $green url("icons/shipped.svg") no-repeat center / contain
+              background-size: 60px
+          &.icon-3
+              background: $green url("icons/idea.svg") no-repeat center / contain
+              background-size: 60px
+          &.icon-4
+              background: $green url("icons/plant.svg") no-repeat center / contain
+              background-size: 60px
+          &.icon-5
+              background: $green url("icons/bouquet.svg") no-repeat center / contain
+              background-size: 60px
+          &.icon-1,  &.icon-2, &.icon-3, &.icon-4, &.icon-5
+              +maxwidth($tablet)
+                  background-size: 50px
+              +maxwidth($mobail)
+                  background-size: 40px
+              +maxwidth($min-width)
+                  background-size: 30px
+
+      &-column-title
+          margin-top: 30px
+          font: bold 20px/100% $waverly
+          color: $darkgray
+          +maxwidth($tablet)
+              margin-top: 25px
+              font: bold 18px/100% $waverly
+          +maxwidth($mobail)
+              margin-top: 20px
+              font: bold 16px/100% $waverly
+
+      &-column-text
+          margin-top: 20px
+          font: bold 15px/100% $waverly
+          color: $darkgray
+          text-align: justify
+          +maxwidth($tablet)
+              margin-top: 20px
+              font: bold 14px/100% $waverly
+          +maxwidth($mobail)
+              margin-top: 15px
+              text-align: center
+              font: bold 14px/100% $waverly

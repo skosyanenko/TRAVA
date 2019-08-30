@@ -1,0 +1,29 @@
+<div class="wrap__contacts-form">
+    <form id="contactForm" class="form-contacts">
+        <span class="form-contacts__title">Связаться с нами:</span>
+        <div class="form-contacts__container">
+            <label for="name" class="form-contacts__container-label"> Введите ваше имя:</label>
+            <input id="name" class="form-contacts__container-input" name="name" required type="text" placeholder="Имя">
+        </div>
+        <div class="form-contacts__container">
+            <label for="email" class="form-contacts__container-label">Введите ваш E-mail:</label>
+            <input id="email" class="form-contacts__container-input" name="email" required type="email" placeholder="E-mail">
+        </div>
+        <div class="form-contacts__container">
+            <label for="phone" class="form-contacts__container-label">Введите ваш телефон:</label>
+            <input id="phone" class="form-contacts__container-input" name="phone" required type="text" placeholder="Телефон">
+        </div>
+        <div class="form-contacts__container">
+            <label for="message" class="form-contacts__container-label">Введите текст сообщения:</label>
+            <textarea id="message" class="form-contacts__container-textarea" required name="message" rows="4" placeholder="Сообщение"></textarea>
+        </div>
+        <div class="form-contacts__container-box">
+            <div class="form-contacts__container container-checkbox">
+                <input id="check" name="check" type="checkbox" class="form-contacts__container-checkbox">
+                <label for="check" class="form-contacts__container-text">Я добровольно отправляю свои данные</label>
+            </div>
+            <button id="button" class="button" type="submit">Отправить</button>
+        </div>
+    </form>
+    <div id="success"  class="wrap__contacts-sent"></div>
+</div>

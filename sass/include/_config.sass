@@ -9,12 +9,12 @@
     src: url($f-url) format('woff')
 
 // WaverlyCF (основной шрифт)
-@include font('Waverly CF', normal, 100, '../fonts/WaverlyCF-Thin.woff2')
-@include font('Waverly CF', normal, 300, '../fonts/WaverlyCF-Light.woff2')
-@include font('Waverly CF', normal, 500, '../fonts/WaverlyCF-Medium.woff2')
-@include font('Waverly CF Demi', normal, 600, '../fonts/WaverlyCF-DemiBold.woff2')
-@include font('Waverly CF', normal, bold, '../fonts/WaverlyCF-Bold.woff2')
-@include font('Waverly CF Extra', normal, 800, '../fonts/WaverlyCF-ExtraBold.woff2')
+@include font('Waverly CF', normal, 100, 'WaverlyCF-Thin.woff2')
+@include font('Waverly CF', normal, 300, 'WaverlyCF-Light.woff2')
+@include font('Waverly CF', normal, 500, 'WaverlyCF-Medium.woff2')
+@include font('Waverly CF Demi', normal, 600, 'WaverlyCF-DemiBold.woff2')
+@include font('Waverly CF', normal, bold, 'WaverlyCF-Bold.woff2')
+@include font('Waverly CF Extra', normal, 800, 'WaverlyCF-ExtraBold.woff2')
 
 $waverly: 'Waverly CF'
 $waverlyDemi: 'Waverly CF Demi'
@@ -33,19 +33,18 @@ $orange: #FFCC73
 // Основные разрешения
 // ===================
 
-$max-width: 1320px
 $desktop: 1330px
 $sm-desktop: 1280px
-$tablet: 991px
+$tablet: 1180px
 $mobail: 767px
-$sm-mobail: 575px
 $min-width: 320px
 
 =maxwidth($w)
   @media only screen and (max-width: $w)
     @content
 
-
+// Колонки
+// ===================
 
 @keyframes column
   0%
@@ -58,10 +57,10 @@ $min-width: 320px
 // ===================
 
 %sectiontitle
-    color: $green
-    font: bold 80px/100% $waverly
-    padding-bottom: 10px
     width: fit-content
+    font: bold 80px/100% $waverly
+    color: $green
+    padding-bottom: 10px
     border-bottom: 10px solid $green
     +maxwidth($desktop)
         font: bold 70px/100% $waverly
@@ -90,8 +89,8 @@ $min-width: 320px
 %sectiontext
     font: 100 18px/100% $waverly
     color: $gray
-    margin-top: 30px
     text-align: justify
+    margin-top: 30px
     +maxwidth($tablet)
         font: 300 16px/100% $waverly
         margin-top: 20px
@@ -99,17 +98,49 @@ $min-width: 320px
         font: 300 14px/100% $waverly
         margin-top: 15px
 
+// Анимация
+// ===================
+
 %active
     transform: translateX(0)
     opacity: 1
 
-
 *::selection
     background-color: $orange
+
+// Базовые стили
+// ===================
 
 body
     margin: 0
     padding: 0
+
+    &.no-scroll
+        overflow: hidden
+
+a
+    text-decoration: none
+
+p
+    text-indent: 35px
+    margin-bottom: 25px
+    +maxwidth($tablet)
+        text-indent: 30px
+        margin-bottom: 20px
+    +maxwidth($mobail)
+        text-indent: 25px
+        margin-bottom: 15px
+    +maxwidth($min-width)
+        text-indent: 20px
+        margin-bottom: 10px
+    p:last-child
+        margin-bottom: 0
+
+nav
+    display: flex
+    flex-direction: column
+    +maxwidth($tablet)
+        display: none
 
 main
     width: 100%
@@ -128,34 +159,38 @@ main
         margin-top: 70px
         grid-template-columns: repeat(3, 1fr)
         grid-template-areas:  " plants plants plants" "plants-image plants-image plants-image" "pots pots pots " "pots-image pots-image pots-image"   "about about about" "about-image about-image about-image" "adv adv adv"
-
-nav
-    display: flex
-    flex-direction: column
+.wrap
+    grid-template-areas: ". title title title title title title ." ". men men men men men men ." ". catalog catalog catalog catalog catalog catalog . " ". pag pag pag pag pag pag ."
+    grid-template-rows: auto
     +maxwidth($tablet)
-        display: none
+        grid-template-areas: "title title title" "men men men" "catalog catalog catalog" "pag pag pag"
+
+    &__pots
+        min-height: calc(100vh - 60px)
+
+    &__contacts
+        min-height: calc(100vh - 120px)
 
 .nav-link
-    transform: translateX(0)
-    transition: transform .5s ease
-    text-decoration: none
-    font: bold 25px/100% $waverly
-    color: $darkgray
+    width: fit-content
+    position: relative
     margin-top: 50px
     padding-bottom: 5px
-    position: relative
-    width: fit-content
+    font: bold 25px/100% $waverly
+    color: $darkgray
+    transform: translateX(0)
+    transition: transform .5s ease
     +maxwidth($desktop)
         margin-top: 30px
-        font: bold 20px/100% $waverly
         padding-bottom: 3px
+        font: bold 20px/100% $waverly
     &:after
         content: ""
         position: absolute
+        width: 0
+        height: 2px
         bottom: 0
         left: 0
-        height: 2px
-        width: 0
         background-color: $green
         opacity: 0.8
         transition: all .3s ease
@@ -170,3 +205,4 @@ nav
     width: 100%
     min-width: 100%
     display: flex
+

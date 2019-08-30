@@ -1,0 +1,228 @@
+@import '../include/config'
+
+.overlay
+    position: absolute
+    width: 100%
+    height: 100vh
+    top: 0
+    left: 0
+    background-color: rgba(0, 0, 0, .8)
+    display: flex
+    justify-content: center
+
+.modal
+    position: fixed
+    z-index: 1050
+    display: none
+    justify-content: center
+    align-items: center
+    outline: 0
+    opacity: 1
+    +maxwidth($mobail)
+        overflow-y: scroll
+
+    &__content
+        max-width: 55%
+        width: 100%
+        display: flex
+        padding: 5%
+        z-index: 10
+        background: $white
+        left: 0
+        right: 0
+        top: 0
+        margin: 0 auto
+        +maxwidth($desktop)
+            max-width: 75%
+        +maxwidth($mobail)
+            max-width: calc(100vw - 60px)
+            position: absolute
+            top: 5%
+            flex-direction: column
+            align-items: center
+
+        &-close
+            background: url("icons/close.svg") no-repeat center / cover
+            width: 20px
+            height: 20px
+            right: 0
+            position: absolute
+            cursor: pointer
+            +maxwidth($mobail)
+                top: 20px
+                right: 20px
+
+        &-img
+            max-width: 35%
+            min-height: 75%
+            +maxwidth($tablet)
+                max-width: 400px
+            +maxwidth($mobail)
+                max-width: 250px
+                max-height: 500px
+
+        &-about
+            display: flex
+            flex-direction: column
+            justify-content: space-between
+            margin-left: 60px
+            width: 100%
+            position: relative
+            +maxwidth($desktop)
+                margin-left: 50px
+            +maxwidth($tablet)
+                margin-left: 40px
+            +maxwidth($mobail)
+                margin-left: 0
+                position: unset
+
+        &-name
+            font: bold 30px/100% $waverly
+            color: $green
+            +maxwidth($desktop)
+                font: bold 28px/100% $waverly
+            +maxwidth($tablet)
+                font: bold 26px/100% $waverly
+            +maxwidth($mobail)
+                font: bold 24px/100% $waverly
+
+        &-price
+            font: 300 24px/100% $waverly
+            color: $darkgray
+            margin-top: 20px
+            +maxwidth($desktop)
+                font: 300 22px/100% $waverly
+            +maxwidth($tablet)
+                font: 300 20px/100% $waverly
+                margin-top: 15px
+            +maxwidth($mobail)
+                font: 300 20px/100% $waverly
+                margin-top: 10px
+
+        &-text
+            font: 300 22px/100% $waverly
+            color: $gray
+            margin-bottom: 60px
+            +maxwidth($desktop)
+                font: 300 20px/100% $waverly
+            +maxwidth($tablet)
+                font: 300 20px/100% $waverly
+                margin-bottom: 40px
+            +maxwidth($mobail)
+                font: 300 18px/100% $waverly
+                margin-bottom: 20px
+
+            ul
+                list-style-type: disc
+                padding-left: 20px
+
+            p:first-child
+                text-indent: 0
+                font: bold 22px/100% $waverly
+                +maxwidth($desktop)
+                    font: bold 20px/100% $waverly
+                +maxwidth($tablet)
+                    font: bold 20px/100% $waverly
+                +maxwidth($mobail)
+                    font: bold 18px/100% $waverly
+
+        &-counter
+            display: flex
+            margin-top: 40px
+            width: 200px
+            justify-content: space-between
+            align-items: center
+            +maxwidth($tablet)
+                margin-top: 30px
+            +maxwidth($mobail)
+                margin-top: 20px
+
+        &-add, &-substract
+            width: 50px
+            height: 50px
+            cursor: pointer
+            position: relative
+            +maxwidth($mobail)
+                width: 30px
+                height: 30px
+            &:after
+                content: ""
+                height: 50px
+                top: 0
+                left: 0
+                position: absolute
+                z-index: -1
+                background-color: rgba(0,82,71, 0.5)
+                width: 0
+                transition: width .3s cubic-bezier(.645,.045,.355,1)
+                +maxwidth($mobail)
+                    height: 30px
+            &:hover:after
+                width: 100%
+        &-add
+            background: rgba(0,82,71, 0.8) url("icons/add.svg") no-repeat center / cover
+            background-size: 50%
+
+        &-substract
+            background: rgba(0,82,71, 0.8) url("icons/substract.svg") no-repeat center / cover
+            background-size: 50%
+
+        &-numb
+            font: bold 24px/100% $waverly
+            +maxwidth($tablet)
+                font: bold 22px/100% $waverly
+            +maxwidth($mobail)
+                font: bold 20px/100% $waverly
+
+        &-card
+            display: flex
+            justify-content: space-between
+            +maxwidth($tablet)
+                flex-direction: column
+            +maxwidth($mobail)
+                flex-direction: row
+
+        &-container
+            display: flex
+            justify-content: space-between
+
+.button-basket
+    cursor: pointer
+    font: 400 24px/100% $waverly
+    color: $orange
+    background: rgba(0,82,71, 0.8)
+    border: none
+    padding: 10px
+    height: 50px
+    width: 230px
+    margin-top: auto
+    position: relative
+    +maxwidth($tablet)
+        font: 400 22px/100% $waverly
+        margin-top: 30px
+    +maxwidth($mobail)
+        font: 400 20px/100% $waverly
+        padding: 5px
+        height: 30px
+        margin-top: 20px
+    &:after
+        content: ""
+        height: 100%
+        top: 0
+        left: 0
+        position: absolute
+        z-index: -1
+        background-color: rgba(0,82,71, 0.5)
+        width: 0
+        transition: width .3s cubic-bezier(.645,.045,.355,1)
+    &:hover:after
+        width: 100%
+
+
+
+
+
+
+
+
+

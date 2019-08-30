@@ -1,41 +1,79 @@
 @import '../include/config'
 
 .wrapper
+
   &__button
-    font: 500 15px/100% $waverly
-    color: $black
-    width: fit-content
+      width: fit-content
+      margin-top: 30px
+      padding-bottom: 5px
+      position: relative
+      font: 500 15px/100% $waverly
+      color: $black
+      transform: translateX(-20vw)
+      transition: all .5s ease
+      opacity: 0
+      cursor: pointer
+      +maxwidth($tablet)
+          margin-top: 25px
+          padding-bottom: 3px
+          font: 500 13px/100% $waverly
+      +maxwidth($mobail)
+          margin-top: 20px
+
+      &.active
+          @extend %active
+
+      &:before, &:after
+          content: ""
+          position: absolute
+          bottom: 0
+          left: 0
+          height: 2px
+
+      &:before
+          width: 100%
+          background-color: $gray
+
+      &:after
+          width: 0
+          background-color: $orange
+          transition: all .3s ease
+
+      &:hover:after
+          width: 100%
+
+.button
+    width: 200px
+    height: 60px
     margin-top: 30px
-    padding-bottom: 5px
+    bottom: 0
+    display: flex
+    align-items: center
+    justify-content: center
+    font: bold 25px/100% $waverly
+    color: $orange
+    background: $green
+    border: none
+    cursor: pointer
     position: relative
-    transform: translateX(-20vw)
-    transition: all .5s ease
-    opacity: 0
-    +maxwidth($tablet)
-      margin-top: 25px
-      padding-bottom: 3px
-      font: 500 13px/100% $waverly
+    +maxwidth($desktop)
+        width: 130px
+        height: 50px
+        font: bold 20px/100% $waverly
     +maxwidth($mobail)
-      margin-top: 20px
-
-    &.active
-      @extend %active
-
-    &:before, &:after
-      content: ""
-      position: absolute
-      bottom: 0
-      left: 0
-      height: 2px
-
-    &:before
-      width: 100%
-      background-color: $gray
+        font: bold 18px/100% $waverly
+        height: 40px
 
     &:after
-      width: 0
-      background-color: $orange
-      transition: all .3s ease
+        content: ""
+        width: 0
+        height: 100%
+        top: 0
+        left: 0
+        position: absolute
+        z-index: -1
+        background-color: rgba(0,82,71, 0.5)
+        transition: width .3s cubic-bezier(.645,.045,.355,1)
 
     &:hover:after
-      width: 100%
+        width: 100%

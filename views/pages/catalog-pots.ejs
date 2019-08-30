@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Горшки</title>
+    <link rel="stylesheet" href="project.css">
+    <link rel="stylesheet" href="http://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+</head>
+<body>
+    <div class="wrapper">
+        <% include ../parts/leftMenu %>
+
+        <% include ../parts/socials %>
+
+        <main class="wrap wrap__pots">
+            <% include ../parts/columns %>
+
+            <% include ../parts/catalogPotsTitle %>
+
+            <% include ../parts/catalogPots %>
+        </main>
+    </div>
+
+    <% include ../parts/modalPots %>
+
+    <% include ../parts/footer %>
+
+    <script src="jquery/dist/jquery.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script src="script.js"></script>
+    <script src="modal.js"></script>
+    <script src="select.js"></script>
+</body>
+</html>

@@ -1,0 +1,75 @@
+@import '../include/config'
+
+.wrap
+
+    &__catalog
+        grid-area: catalog
+        display: flex
+        max-width: 100%
+        width: 100%
+        flex-direction: row
+        flex-wrap: wrap
+        padding: 0
+        justify-content: center
+        z-index: 2
+        margin-bottom: 60px
+        transform: translateX(-20vw)
+        transition: all .5s ease
+        opacity: 0
+        +maxwidth($tablet)
+            margin-bottom: 40px
+        +maxwidth($mobail)
+            margin-bottom: 20px
+        &.active
+             @extend %active
+        &-elem
+            width: 33.3%
+            display: flex
+            margin-top: 60px
+            flex-direction: column
+            text-decoration: none
+            justify-content: center
+            align-items: center
+            cursor: pointer
+            touch-action: manipulation
+            overflow: visible
+            &:hover
+                img
+                    opacity: 0.8
+
+            +maxwidth($tablet)
+                margin-top: 40px
+            +maxwidth($mobail)
+                width: 50%
+                margin-top: 20px
+            +maxwidth(450px)
+                width: 100%
+
+        &-img
+            width: 300px
+            height: 300px
+            +maxwidth(1520px)
+                width: 200px
+                height: 200px
+
+            img
+               width: 100%
+               max-height: 100%
+               object-fit: cover
+               transition: all .3s ease
+
+        &-name
+            font: bold 24px/100% $waverly
+            color: $darkgray
+            margin-top: 30px
+            +maxwidth(1520px)
+                font: bold 22px/100% $waverly
+                margin-top: 20px
+
+        &-price
+            font: 300 18px/100% $waverly
+            color: $gray
+            margin-top: 15px
+            +maxwidth(1520px)
+                font: 300 16px/100% $waverly
+                margin-top: 10px

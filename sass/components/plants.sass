@@ -1,34 +1,35 @@
 @import '../include/config'
 
 .wrapper
+
   &__plants
-    grid-area: plants
-    +maxwidth($tablet)
-      order: 3
-
-    &-img
-      grid-row-start: 0
-      grid-row-end: 1
-      grid-area: plants-image
-      overflow: hidden
+      grid-area: plants
       +maxwidth($tablet)
-        grid-row-start: 1
-        grid-row-end: 2
-        order: 2
+          order: 3
 
-    &-image
-      background: url("../images/plants/1.jpg") no-repeat center / cover
-      height: 100%
-      transform: translateX(-20vw)
-      transition: all .5s ease
-      opacity: 0
-      +maxwidth($tablet)
-        width: 100%
-        height: 170vh
-      +maxwidth($mobail)
-        height: 135vh
-      +maxwidth(550px)
-        height: 60vh
-      &.active
-        @extend %active
+      &-img
+          grid-row-start: 0
+          grid-row-end: 1
+          grid-area: plants-image
+          overflow: hidden
+          +maxwidth($tablet)
+              grid-row-start: 1
+              grid-row-end: 2
+              order: 2
+
+      &-image
+          height: 100%
+          background: url("plants/1.jpg") no-repeat center / cover
+          transform: translateX(-20vw)
+          transition: all .5s ease
+          opacity: 0
+          +maxwidth($tablet)
+              width: 100%
+              height: 170vh
+          +maxwidth($mobail)
+              height: 135vh
+          +maxwidth(550px)
+              height: 60vh
+          &.active
+              @extend %active
 
