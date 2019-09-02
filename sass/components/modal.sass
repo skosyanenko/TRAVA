@@ -18,7 +18,7 @@
     align-items: center
     outline: 0
     opacity: 1
-    +maxwidth($mobail)
+    +maxwidth(880px)
         overflow-y: scroll
 
     &__content
@@ -34,12 +34,14 @@
         margin: 0 auto
         +maxwidth($desktop)
             max-width: 75%
-        +maxwidth($mobail)
-            max-width: calc(100vw - 60px)
+        +maxwidth(880px)
+            max-width: 50%
             position: absolute
             top: 5%
             flex-direction: column
             align-items: center
+        +maxwidth(580px)
+            max-width: 80%
 
         &-close
             background: url("icons/close.svg") no-repeat center / cover
@@ -48,8 +50,8 @@
             right: 0
             position: absolute
             cursor: pointer
-            +maxwidth($mobail)
-                top: 20px
+            +maxwidth(880px)
+                top: 15px
                 right: 20px
 
         &-img
@@ -57,6 +59,8 @@
             min-height: 75%
             +maxwidth($tablet)
                 max-width: 400px
+            +maxwidth(880px)
+                margin-top: 25px
             +maxwidth($mobail)
                 max-width: 250px
                 max-height: 500px
@@ -72,18 +76,23 @@
                 margin-left: 50px
             +maxwidth($tablet)
                 margin-left: 40px
-            +maxwidth($mobail)
+            +maxwidth(880px)
                 margin-left: 0
                 position: unset
+                margin-top: 30px
+                max-width: 250px
 
         &-name
+            width: fit-content
             font: bold 30px/100% $waverly
             color: $green
+            padding-bottom: 5px
+            border-bottom: 5px solid $green
             +maxwidth($desktop)
                 font: bold 28px/100% $waverly
             +maxwidth($tablet)
                 font: bold 26px/100% $waverly
-            +maxwidth($mobail)
+            +maxwidth(880px)
                 font: bold 24px/100% $waverly
 
         &-price
@@ -95,7 +104,7 @@
             +maxwidth($tablet)
                 font: 300 20px/100% $waverly
                 margin-top: 15px
-            +maxwidth($mobail)
+            +maxwidth(880px)
                 font: 300 20px/100% $waverly
                 margin-top: 10px
 
@@ -108,7 +117,7 @@
             +maxwidth($tablet)
                 font: 300 20px/100% $waverly
                 margin-bottom: 40px
-            +maxwidth($mobail)
+            +maxwidth(880px)
                 font: 300 18px/100% $waverly
                 margin-bottom: 20px
 
@@ -123,8 +132,17 @@
                     font: bold 20px/100% $waverly
                 +maxwidth($tablet)
                     font: bold 20px/100% $waverly
-                +maxwidth($mobail)
+                +maxwidth(880px)
                     font: bold 18px/100% $waverly
+
+        &-card
+            display: flex
+            justify-content: space-between
+            +maxwidth($tablet)
+                flex-direction: column
+                align-items: start
+            +maxwidth(880px)
+                align-items: center
 
         &-counter
             display: flex
@@ -134,20 +152,21 @@
             align-items: center
             +maxwidth($tablet)
                 margin-top: 30px
-            +maxwidth($mobail)
+            +maxwidth(880px)
                 margin-top: 20px
+                width: 250px
 
         &-add, &-substract
             width: 50px
             height: 50px
             cursor: pointer
             position: relative
-            +maxwidth($mobail)
-                width: 30px
-                height: 30px
+            +maxwidth(880px)
+                width: 40px
+                height: 40px
             &:after
                 content: ""
-                height: 50px
+                height: 100%
                 top: 0
                 left: 0
                 position: absolute
@@ -155,8 +174,6 @@
                 background-color: rgba(0,82,71, 0.5)
                 width: 0
                 transition: width .3s cubic-bezier(.645,.045,.355,1)
-                +maxwidth($mobail)
-                    height: 30px
             &:hover:after
                 width: 100%
         &-add
@@ -171,52 +188,20 @@
             font: bold 24px/100% $waverly
             +maxwidth($tablet)
                 font: bold 22px/100% $waverly
-            +maxwidth($mobail)
-                font: bold 20px/100% $waverly
-
-        &-card
-            display: flex
-            justify-content: space-between
-            +maxwidth($tablet)
-                flex-direction: column
-            +maxwidth($mobail)
-                flex-direction: row
 
         &-container
             display: flex
             justify-content: space-between
+            +maxwidth($tablet)
+                flex-direction: column
 
-.button-basket
-    cursor: pointer
-    font: 400 24px/100% $waverly
-    color: $orange
-    background: rgba(0,82,71, 0.8)
-    border: none
-    padding: 10px
-    height: 50px
-    width: 230px
-    margin-top: auto
-    position: relative
-    +maxwidth($tablet)
-        font: 400 22px/100% $waverly
-        margin-top: 30px
-    +maxwidth($mobail)
-        font: 400 20px/100% $waverly
-        padding: 5px
-        height: 30px
-        margin-top: 20px
-    &:after
-        content: ""
-        height: 100%
-        top: 0
-        left: 0
-        position: absolute
-        z-index: -1
-        background-color: rgba(0,82,71, 0.5)
-        width: 0
-        transition: width .3s cubic-bezier(.645,.045,.355,1)
-    &:hover:after
-        width: 100%
+        &-cont
+            display: flex
+            flex-direction: column
+            +maxwidth($tablet)
+                &:last-child
+                    margin-top: 20px
+
 
 
 

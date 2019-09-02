@@ -1,9 +1,10 @@
-<section class="wrap__menu" data-anim="0.8">
-    <div class="wrap__menu-container">
+<section class="wrap__menu" data-anim="1">
+    <div class="wrap__menu-container" data-filter-group="plant">
         <div class="wrap__menu-title">Растения</div>
         <select class="wrap__menu-select">
-            <option value="cactus">кактусы</option>
-            <option value="succulent">суккуленты</option>
+            <option value=".wrap__catalog-elem">все растения</option>
+            <option value=".cactus">кактусы</option>
+            <option value=".succulent">суккуленты</option>
         </select>
     </div>
     <div class="slider-container">
@@ -18,12 +19,13 @@
             </div>
         </div>
     </div>
-    <div class="wrap__menu-container">
+    <div class="wrap__menu-container" data-filter-group="size">
         <div class="wrap__menu-title">Диаметр горшка</div>
         <select class="wrap__menu-select">
-            <option value="5">5</option>
-            <option value="7">7</option>
-            <option value="10">10</option>
+            <option value=".wrap__catalog-elem">все растения</option>
+            <option value=".5">5</option>
+            <option value=".7">7</option>
+            <option value=".10">10</option>
         </select>
     </div>
 </section>

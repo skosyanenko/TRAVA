@@ -122,16 +122,12 @@ a
     text-decoration: none
 
 p
-    text-indent: 35px
     margin-bottom: 25px
     +maxwidth($tablet)
-        text-indent: 30px
         margin-bottom: 20px
     +maxwidth($mobail)
-        text-indent: 25px
         margin-bottom: 15px
     +maxwidth($min-width)
-        text-indent: 20px
         margin-bottom: 10px
     p:last-child
         margin-bottom: 0
@@ -162,14 +158,26 @@ main
 .wrap
     grid-template-areas: ". title title title title title title ." ". men men men men men men ." ". catalog catalog catalog catalog catalog catalog . " ". pag pag pag pag pag pag ."
     grid-template-rows: auto
+    min-height: calc(100vh - 60px)
     +maxwidth($tablet)
         grid-template-areas: "title title title" "men men men" "catalog catalog catalog" "pag pag pag"
 
     &__pots
-        min-height: calc(100vh - 60px)
+        max-height: calc(100vh - 60px)
+        +maxwidth(570px)
+            max-height: 100%
 
     &__contacts
         min-height: calc(100vh - 120px)
+
+.wrap-about
+    grid-template-areas: "about-image about-image about-image about-image about-image about about about "
+    grid-template-rows: auto
+    min-height: calc(100vh - 60px)
+    +maxwidth(1700px)
+        grid-template-areas: "about-image about-image about-image about-image about-image about-image about-image about-image" "about about about about about about about . "
+    +maxwidth($tablet)
+        grid-template-areas: "about about about" "about-image about-image about-image"
 
 .nav-link
     width: fit-content
@@ -205,4 +213,9 @@ main
     width: 100%
     min-width: 100%
     display: flex
+
+.wrapper-pots
+    min-height: calc(100vh - 60px)
+    +maxwidth($desktop)
+        min-height: calc(100vh - 50px)
 

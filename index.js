@@ -1,9 +1,12 @@
 const express = require('express');
-const app = express();
 const path = require('path');
-const router = express.Router();
+const fs = require('fs');
 const nodeMailer = require('nodemailer');
 const bodyParser = require('body-parser');
+const data = fs.readFileSync('data.json', 'utf8');
+
+const app = express();
+const router = express.Router();
 
 app.set('view engine', 'ejs');
 app.use(bodyParser.urlencoded({extended: true}));
@@ -12,11 +15,9 @@ app.use(bodyParser.json());
 
 app.get('/', (req,res) => res.render('pages/index'));
 app.get('/contacts', (req,res) => res.render('pages/contacts'));
-app.get('/catalog-plants', (req,res) => res.render('pages/catalog-plants'));
+app.get('/catalog-plants', (req,res) => res.render('pages/catalog-plants', {data}));
 app.get('/catalog-pots', (req,res) => res.render('pages/catalog-pots'));
 app.get('/about', (req,res) => res.render('pages/about'));
-
-
 
 app.post('/send-email', function (req, res) {
     let transporter = nodeMailer.createTransport({

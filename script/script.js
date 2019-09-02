@@ -48,4 +48,14 @@ $(document).ready(function() {
             }
         });
     });
+
+    $('.wrap__pagination-inner a').on('click', function() {
+        $(this).siblings().removeClass('wrap__pagination-active');
+        $(this).addClass('wrap__pagination-active');
+    });
+
 });
+
+
+
+

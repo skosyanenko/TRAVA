@@ -3,8 +3,8 @@
 .wrap
 
     &__pagination
-        height: 80px
-        margin: 0 auto 90px auto
+        height: 50px
+        margin: 0 auto 70px auto
         grid-area: pag
         display: flex
         position: relative
@@ -13,11 +13,14 @@
         transition: all .5s ease
         transform: translateX(-20vw)
         opacity: 0
+        +maxwidth($tablet)
+            margin: 0 auto 50px auto
+            height: 25px
         +maxwidth($mobail)
             font: 300 18px/100% $waverly
         +maxwidth(500px)
             font: 300 16px/100% $waverly
-            margin: 20px auto 0 auto
+            margin: 20px auto 40px auto
         &.active
             @extend %active
 
