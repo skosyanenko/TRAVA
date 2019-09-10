@@ -1,0 +1,114 @@
+@import '../include/config'
+
+.search-inner
+    width: calc(100% - 280px)
+    height: 100vh
+    padding: 60px 30px
+    border-left: 1px solid rgba(0,0,0,.08)
+    display: flex
+    flex-direction: column
+    align-items: center
+    position: fixed
+    transition: all .5s ease
+    opacity: 0
+    +maxwidth($desktop)
+        width: calc(100% - 150px)
+    +maxwidth($tablet)
+        width: 100%
+        height: calc(100vh - 140px)
+        padding: 0
+        margin-top: 60px
+        margin-bottom: 120px
+    &.active
+        @extend %active
+
+    &__columns
+        width: calc(100% - 220px)
+        height: 100%
+        position: fixed
+        display: none
+        +maxwidth($desktop)
+            width: calc(100% - 150px)
+        +maxwidth($tablet)
+            width: 100%
+
+    &__column
+        width: calc(100% / 8)
+        height: 100%
+        min-height: 1px
+        background: rgba(0, 82, 71, 0.8)
+        border-left: 1px solid rgba(0,0,0,.08)
+        transform: translateY(101%)
+        transition: all .5s ease
+        opacity: 0
+        &.active
+            @extend %active
+        +maxwidth($tablet)
+            width: calc(100% / 3)
+        &.column-none
+            +maxwidth($tablet)
+                display: none
+
+    &__wrap
+        position: relative
+        display: flex
+        width: 50%
+        height: 60px
+        z-index: 102
+        transform: translateY(-10%)
+        transition: all .5s ease
+        opacity: 0
+        &.active
+            @extend %active
+        +maxwidth($desktop)
+            height: 60px
+        +maxwidth($tablet)
+            width: 70%
+            margin-bottom: 20px
+
+        &-input
+            width: 100%
+            height: 50px
+            padding-left: 20px
+            display: flex
+            justify-content: center
+            font: 100 18px/100% $waverly
+            color: $green
+            border: 1px solid $green
+            border-radius: 30px
+            background: white
+            outline: none
+            +maxwidth($desktop)
+                font: 100 16px/100% $waverly
+
+        &-loupe
+            width: 30px
+            height: 30px
+            margin-top: 12px
+            right: 20px
+            position: absolute
+            opacity: 0.8
+            cursor: pointer
+            &.active
+                right: 20px
+
+    &__wrapper
+        width: 100%
+        z-index: 102
+        display: flex
+        flex-wrap: wrap
+        justify-content: space-between
+        align-items: flex-start
+        +maxwidth($tablet)
+            overflow-y: scroll
+
+        h2
+            width: 100%
+            margin-top: 60px
+            text-align: center
+            font: bold 30px/100% $waverly
+            color: $white
+
+
+
+

@@ -1,5 +1,4 @@
 $(document).ready(function() {
-
     $('#name, #message').on('blur', function() {
         let $this = $(this),
             value = $this.val();

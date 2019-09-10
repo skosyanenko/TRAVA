@@ -3,7 +3,9 @@ const path = require('path');
 const fs = require('fs');
 const nodeMailer = require('nodemailer');
 const bodyParser = require('body-parser');
-const data = fs.readFileSync('data.json', 'utf8');
+const plants = fs.readFileSync('plants.json', 'utf8');
+const pots = fs.readFileSync('pots.json', 'utf8');
+const favicon = require('serve-favicon');
 
 const app = express();
 const router = express.Router();
@@ -11,13 +13,14 @@ const router = express.Router();
 app.set('view engine', 'ejs');
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(bodyParser.json());
+app.use(favicon('favicon.ico'));
 
-
-app.get('/', (req,res) => res.render('pages/index'));
-app.get('/contacts', (req,res) => res.render('pages/contacts'));
-app.get('/catalog-plants', (req,res) => res.render('pages/catalog-plants', {data}));
-app.get('/catalog-pots', (req,res) => res.render('pages/catalog-pots'));
-app.get('/about', (req,res) => res.render('pages/about'));
+app.get('/', (req,res) => res.render('pages/index', {plants}));
+app.get('/contacts', (req,res) => res.render('pages/contacts', {plants}));
+app.get('/catalog-plants', (req,res) => res.render('pages/catalog-plants', {plants}));
+app.get('/catalog-pots', (req,res) => res.render('pages/catalog-pots', {plants, pots}));
+app.get('/about', (req,res) => res.render('pages/about', {plants}));
+app.get('/cart', (req,res) => res.render('pages/cart', {plants}));
 
 app.post('/send-email', function (req, res) {
     let transporter = nodeMailer.createTransport({

@@ -1,0 +1,93 @@
+@import '../../include/config'
+
+.wrap
+
+    &__contacts
+        margin: 60px 60px 0 60px
+        grid-area: men
+        display: flex
+        flex-direction: column
+        z-index: 3
+        transform: translateX(-20vw)
+        transition: all .5s ease
+        opacity: 0
+        +maxwidth($desktop)
+            margin: 60px 30px 0 30px
+        +maxwidth($tablet)
+            margin: 40px 40px 20px 40px
+        +maxwidth($mobail)
+            margin: 30px 40px 20px 40px
+
+        &.active
+            @extend %active
+
+        &-form
+            min-height: 606px
+            +maxwidth($mobail)
+                min-height: 510px
+
+        &-text
+            font: 400 20px/100% $waverly
+            color: $darkgray
+            text-align: justify
+            margin: 0 auto
+            +maxwidth($tablet)
+                font: 400 18px/100% $waverly
+            +maxwidth($mobail)
+                font: 400 16px/100% $waverly
+
+        &-social
+            width: 100%
+            display: flex
+            justify-content: center
+            margin: 40px 0 60px 0
+
+            div
+                margin-right: 100px
+                +maxwidth($desktop)
+                    margin-right: 80px
+                +maxwidth($tablet)
+                    margin-right: 60px
+                +maxwidth($mobail)
+                    margin-right: 40px
+                &:last-child
+                    margin-right: 0
+
+        &-sent
+            display: none
+            margin: 20%
+            text-align: center
+            font: bold 40px/100% $waverly
+            color: $green
+            +maxwidth($tablet)
+                font: bold 32px/100% $waverly
+            +maxwidth($mobail)
+                font: bold 24px/100% $waverly
+
+            &.sent-error
+                margin: 20px
+                font: bold 30px/100% $waverly
+                color: red
+                +maxwidth($tablet)
+                    font: bold 25px/100% $waverly
+                +maxwidth($mobail)
+                    font: bold 20px/100% $waverly
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

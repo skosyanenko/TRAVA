@@ -53,6 +53,12 @@ $min-width: 320px
   100%
     height: 100%
 
+@keyframes show
+    0%
+        opacity: 0
+    100%
+        opacity: 1
+
 // Форматирование текста
 // ===================
 
@@ -179,6 +185,13 @@ main
     +maxwidth($tablet)
         grid-template-areas: "about about about" "about-image about-image about-image"
 
+.wrap-cart
+    grid-template-areas: ". cart cart cart cart cart cart . "
+    grid-template-rows: auto
+    min-height: calc(100vh - 60px)
+    +maxwidth($tablet)
+        grid-template-areas: "cart cart cart"
+
 .nav-link
     width: fit-content
     position: relative
@@ -219,3 +232,6 @@ main
     +maxwidth($desktop)
         min-height: calc(100vh - 50px)
 
+.flex
+    display: flex !important
+    z-index: 100

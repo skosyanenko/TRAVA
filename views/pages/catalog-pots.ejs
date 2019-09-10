@@ -7,11 +7,12 @@
         <% include ../parts/socials %>
         <main class="wrap wrap__pots">
             <% include ../parts/columns %>
-            <% include ../parts/catalogPotsTitle %>
-            <% include ../parts/catalogPots %>
+            <% include ../parts/catalog-pots/catalogPotsTitle %>
+            <% include ../parts/catalog-pots/catalogPots %>
         </main>
     </div>
     <% include ../parts/modalPots %>
+    <script>window.pots = <%- pots %></script>
     <% include ../parts/footer %>
 </body>
 </html>

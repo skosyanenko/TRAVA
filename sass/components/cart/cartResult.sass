@@ -1,0 +1,25 @@
+@import '../../include/config'
+
+.wrap-cart
+
+    &__cart
+        margin-top: 60px
+        grid-area: cart
+        display: flex
+        flex-direction: column
+        z-index: 3
+        transform: translateX(-20vw)
+        transition: all .5s ease
+        opacity: 0
+
+        &.active
+            @extend %active
+
+    &__title
+        @extend %sectiontitle
+        width: 100%
+        display: flex
+        align-items: flex-end
+
+    &__result
+        margin-top: 60px

@@ -5,16 +5,14 @@
     <div class="wrapper">
         <% include ../parts/leftMenu %>
         <% include ../parts/socials %>
-        <main class="wrap">
+        <main class="wrap" id="plants-page">
             <% include ../parts/columns %>
-            <% include ../parts/catalogPlantsTitle %>
-            <% include ../parts/catalogFilters %>
+            <% include ../parts/catalog-plants/catalogPlantsTitle %>
+            <% include ../parts/catalog-plants/catalogFilters %>
             <section class="wrap__catalog" data-anim="1.2"></section>
             <% include ../parts/pagination %>
         </main>
     </div>
-    <% include ../parts/modalPlant %>
     <% include ../parts/footer %>
-    <script> let json = <%- data %></script>
 </body>
 </html>

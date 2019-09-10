@@ -3,7 +3,12 @@ $(document).ready(function() {
     $('.burger').on('click', function(){
         $(this).toggleClass('open'); // меняется сам бургер
         if ($(window).width() <= 991) {
-            $('.mobile-menu').toggleClass('show');
+            if ($('.search-inner__columns').hasClass('flex')) {
+                toggleColumns('close');
+                $(this).addClass('open');
+            } else {
+                $('.mobile-menu').toggleClass('show');
+            }
         } else {
             let time = 0;
             $('.nav-link').each(function( index, el ) {
@@ -11,11 +16,6 @@ $(document).ready(function() {
                 setTimeout(() => $(el).toggleClass('close'), time); // меняется каждая ссылка
             });
         }
-    });
-
-    $('.wrapper__sidebar-loupe').on('click', function(){
-        $('.wrapper__sidebar-search-input').toggleClass('active').focus();
-        $('.wrapper__sidebar-loupe').toggleClass('active')
     });
 
     $('.nav-link').on('click', function() {
@@ -39,7 +39,7 @@ $(document).ready(function() {
 
             // проверяем, если этот элемент принадлежит к тем,
             // которые внизу страницы, то увеличиваем разницу diff
-            ($(el).hasClass('wrapper__advantages-column') || $(el).hasClass('footer-wrapper') || $(el).hasClass('wrap__pagination') || $(el).hasClass('wrapper__socials-wrap')) ? diff = 1100 : '';
+            ($(el).hasClass('wrapper__advantages-column') || $(el).hasClass('footer-wrapper') || $(el).hasClass('wrapper__socials-wrap')) ? diff = 1100 : '';
 
             if (windowScroll >= elementTop - diff) {
                 setTimeout(() => {
@@ -52,6 +52,18 @@ $(document).ready(function() {
     $('.wrap__pagination-inner a').on('click', function() {
         $(this).siblings().removeClass('wrap__pagination-active');
         $(this).addClass('wrap__pagination-active');
+    });
+
+    $('.wrapper__advantages-button').on('click', function(){
+        let btnFlag = 'active-button';
+
+        setTimeout(() => $(window).trigger('scroll'), 10);
+
+        if(!$(this).hasClass(btnFlag)) {
+            $('.wrapper__advantages-range').toggleClass('range-none')
+        }
+        $('.wrapper__advantages-button').removeClass(btnFlag);
+        $(this).addClass(btnFlag);
     });
 
 });

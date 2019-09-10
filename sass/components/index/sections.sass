@@ -1,0 +1,48 @@
+@import '../../include/config'
+
+.wrapper
+
+  &__plants, &__pots, &__about-us
+      display: flex
+      z-index: 1
+
+      &-wrap
+          padding-right: 60px
+          display: flex
+          flex-direction: column
+          justify-content: center
+          overflow: hidden
+          +maxwidth($tablet)
+              padding: 30px
+          +maxwidth($min-width)
+              padding: 20px
+          &.pots-visible
+              overflow: visible
+
+      &-title
+          @extend %sectiontitle
+          transform: translateX(-20vw)
+          transition: all .5s ease
+          opacity: 0
+          &.active
+              @extend %active
+
+      &-subtitle
+          @extend %sectionsubtitle
+          transform: translateX(-20vw)
+          transition: all .5s ease
+          opacity: 0
+          &.active
+              @extend %active
+
+      &-text
+          @extend %sectiontext
+          transform: translateX(-20vw)
+          transition: all .5s ease
+          opacity: 0
+          &.active
+              @extend %active
+
+
+
+

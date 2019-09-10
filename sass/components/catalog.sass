@@ -33,6 +33,8 @@
             cursor: pointer
             touch-action: manipulation
             overflow: visible
+            &.elem-search
+                margin-top: 30px
             &:hover
                 img
                     opacity: 0.8
@@ -65,6 +67,8 @@
             +maxwidth(1520px)
                 font: bold 22px/100% $waverly
                 margin-top: 20px
+            &.name-search
+                color: $white
 
         &-price
             font: 300 18px/100% $waverly
@@ -73,3 +77,8 @@
             +maxwidth(1520px)
                 font: 300 16px/100% $waverly
                 margin-top: 10px
+            &.price-search
+                font: bold 18px/100% $waverly
+                color: $white
+
+
