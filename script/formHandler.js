@@ -1,4 +1,6 @@
 $(document).ready(function() {
+
+    // добавляем проверку на заполнение соответствующих полей формы
     $('#name, #message').on('blur', function() {
         let $this = $(this),
             value = $this.val();
@@ -33,7 +35,7 @@ $(document).ready(function() {
         }
     });
 
-    // Проверяет отмечен ли чекбокс согласия с обработкой персональных данных
+    // Проверяем отмечен ли чекбокс согласия с обработкой персональных данных
     $('#check').on('click', function() {
         let $this = $(this);
 
@@ -46,7 +48,7 @@ $(document).ready(function() {
         }
     });
 
-    // Отправляет данные из формы на сервер и получает ответ
+    // Отправляем данные из формы на сервер и получаем ответ
     $('#contactForm').on('submit', function(event) {
         event.preventDefault();
         let form = $('#contactForm'),
@@ -60,7 +62,6 @@ $(document).ready(function() {
             data: form.serialize(),
             success: function(result) {
                 if (result.errno) {
-                    console.log(result);
                     successText.fadeIn(300).text('Ошибка при отправке заявки, попробуйте позже!').addClass('sent-error');
                 } else {
                     form.css('margin-bottom', 0).hide();

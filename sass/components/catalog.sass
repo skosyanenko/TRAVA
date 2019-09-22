@@ -10,7 +10,6 @@
         flex-direction: row
         flex-wrap: wrap
         padding: 0
-        justify-content: center
         z-index: 2
         margin-bottom: 60px
         transform: translateX(-20vw)
@@ -20,8 +19,10 @@
             margin-bottom: 40px
         +maxwidth($mobail)
             margin-bottom: 20px
+
         &.active
              @extend %active
+
         &-elem, &-el
             width: 33.3%
             display: flex
@@ -33,6 +34,10 @@
             cursor: pointer
             touch-action: manipulation
             overflow: visible
+            max-height: 380px
+            transition: .4s ease
+            opacity: 0
+
             &.elem-search
                 margin-top: 30px
             &:hover
@@ -67,6 +72,7 @@
             +maxwidth(1520px)
                 font: bold 22px/100% $waverly
                 margin-top: 20px
+
             &.name-search
                 color: $white
 
@@ -77,6 +83,7 @@
             +maxwidth(1520px)
                 font: 300 16px/100% $waverly
                 margin-top: 10px
+
             &.price-search
                 font: bold 18px/100% $waverly
                 color: $white

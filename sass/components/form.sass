@@ -1,6 +1,63 @@
-@import '../../include/config'
+@import '../include/config'
 
-.form-contacts
+.formCart
+    max-width: 50%
+    width: 100%
+    display: flex
+    flex-direction: column
+    padding: 4%
+    z-index: 10
+    background: $white
+    left: 0
+    right: 0
+    top: 0
+    margin-bottom: 0 !important
+    position: relative
+    +maxwidth($desktop)
+        max-width: 75%
+    +maxwidth(880px)
+        max-width: 50%
+        margin: 0 auto
+        position: absolute
+        top: 5%
+        flex-direction: column
+        align-items: center
+    +maxwidth(580px)
+        max-width: 80%
+
+    &__container
+        margin-top: 0 !important
+        width: 100%
+
+        &-label
+            font: bold 22px/100% $waverly !important
+            +maxwidth($mobail)
+                font: bold 20px/100% $waverly !important
+
+        &-input, &-textarea
+            margin-top: 15px !important
+            font: bold 16px/100% $waverly !important
+            +maxwidth($mobail)
+                margin-top: 10px !important
+                font: bold 14px/100% $waverly !important
+
+        &-box
+            +maxwidth($mobail)
+                margin-top: 20px
+
+    &__content-close
+        background: url("icons/close.svg") no-repeat center / cover
+        width: 20px
+        height: 20px
+        right: 7%
+        display: flex
+        position: absolute
+        cursor: pointer
+        +maxwidth(880px)
+            top: 15px
+            right: 20px
+
+.formContacts, .formCart
     width: 100%
     margin-bottom: 30px
     +maxwidth($mobail)
@@ -12,7 +69,7 @@
         +maxwidth($tablet)
             font: bold 34px/100% $waverly
         +maxwidth($mobail)
-            font: bold 32px/100% $waverly
+            font: bold 28px/100% $waverly
 
     &__container
         margin-top: 20px
@@ -20,6 +77,7 @@
         &.container-checkbox
             display: flex
             align-items: center
+
         &-label, &-input, &-textarea
             width: calc(100% - 25px)
             margin-top: 20px
@@ -57,13 +115,13 @@
                 flex-direction: column
 
         &-checkbox
-            appearance: none
-            -webkit-appearance: none
-            min-width: 30px
             height: 30px
+            min-width: 30px
             border: 1px solid #ccc
             border-radius: 3px
             position: relative
+            appearance: none
+            -webkit-appearance: none
             outline: none
             &:checked:after
                 content: ''

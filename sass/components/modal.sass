@@ -109,9 +109,9 @@
                 margin-top: 10px
 
         &-text
+            margin-bottom: 60px
             font: 300 22px/100% $waverly
             color: $gray
-            margin-bottom: 60px
             +maxwidth($desktop)
                 font: 300 20px/100% $waverly
             +maxwidth($tablet)
@@ -145,9 +145,9 @@
                 align-items: center
 
         &-counter
-            display: flex
-            margin-top: 40px
             width: 200px
+            margin-top: 40px
+            display: flex
             justify-content: space-between
             align-items: center
             +maxwidth($tablet)
@@ -159,8 +159,8 @@
         &-add, &-substract
             width: 50px
             height: 50px
-            cursor: pointer
             position: relative
+            cursor: pointer
             +maxwidth(880px)
                 width: 40px
                 height: 40px
@@ -176,6 +176,7 @@
                 transition: width .3s cubic-bezier(.645,.045,.355,1)
             &:hover:after
                 width: 100%
+
         &-add
             background: rgba(0,82,71, 0.8) url("icons/add.svg") no-repeat center / cover
             background-size: 50%
@@ -186,6 +187,10 @@
 
         &-numb
             font: bold 24px/100% $waverly
+            text-align: center
+            border: none
+            outline: none
+            background: none
             +maxwidth($tablet)
                 font: bold 22px/100% $waverly
 
@@ -202,10 +207,9 @@
                 &:last-child
                     margin-top: 20px
 
-
-
-
-
+.mdl__content-text .desc-text
+    font: 300 22px/100% $waverly !important
+    color: $gray
 
 
 

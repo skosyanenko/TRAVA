@@ -4,6 +4,7 @@
 
     &__cart
         margin-top: 60px
+        margin-bottom: 60px
         grid-area: cart
         display: flex
         flex-direction: column
@@ -11,6 +12,8 @@
         transform: translateX(-20vw)
         transition: all .5s ease
         opacity: 0
+        +maxwidth(880px)
+            margin-top: 40px
 
         &.active
             @extend %active
@@ -20,6 +23,241 @@
         width: 100%
         display: flex
         align-items: flex-end
+        +maxwidth($tablet)
+            margin: 0 60px
+        +maxwidth(880px)
+            margin: 0 40px 40px 40px
+
+    &__designation
+        width: 100%
+        margin-top: 60px
+        display: flex
+        justify-content: space-between
+        +maxwidth($tablet)
+            max-width: 100%
+            margin-top: 0
+            padding: 60px 60px 30px 60px
+        +maxwidth(880px)
+            display: none
+
+        &-product, &-name
+            font: 300 20px/100% $waverly
+            color: $gray
+
+        &-product
+            width: 50%
+            +maxwidth($tablet)
+                width: 30%
+
+        &-name
+            width: calc(50%/3)
+            text-align: center
+            +maxwidth($tablet)
+                width: 100%
 
     &__result
-        margin-top: 60px
+        margin-top: 30px
+        +maxwidth($tablet)
+            margin-top: 0
+            padding: 0 60px
+        +maxwidth(880px)
+            padding: 0 40px
+
+
+        &-product
+            margin-bottom: 40px
+            display: flex
+            justify-content: space-between
+            align-items: center
+            +maxwidth(880px)
+                flex-direction: column
+                position: relative
+
+        &-left
+            width: 50%
+            display: flex
+            +maxwidth(1090px)
+                width: 35%
+            +maxwidth(880px)
+                flex-direction: column
+                align-items: center
+                width: 100%
+                margin-bottom: 30px
+                &:last-child
+                    align-items: flex-start
+
+        &-img
+            width: 100px
+            height: 100px
+            +maxwidth(880px)
+                width: 250px
+                height: 250px
+
+            img
+                width: 100%
+                max-height: 100%
+                object-fit: cover
+
+        &-container
+            display: flex
+            flex-direction: column
+            justify-content: center
+            margin-left: 40px
+            +maxwidth(880px)
+                margin-left: 0
+                width: 250px
+
+
+        &-name
+            font: bold 24px/100% $waverly
+            color: $darkgray
+            +maxwidth(1520px)
+                font: bold 22px/100% $waverly
+                margin-top: 20px
+
+        &-size, &-color
+            margin-top: 15px
+            font: 300 20px/100% $waverly
+            color: $gray
+
+        &-price, &-summ
+            width: 15%
+            display: flex
+            font: bold 20px/100% $waverly
+            color: $darkgray
+            justify-content: center
+            +maxwidth(1520px)
+                font: 300 16px/100% $waverly
+                margin-top: 10px
+            +maxwidth(1090px)
+                width: 10%
+            +maxwidth(880px)
+                width: 250px
+                justify-content: flex-end
+
+        &-price
+            +maxwidth(880px)
+                margin-top: -45px
+                margin-bottom: 30px
+
+        &-quantity
+            width: 16.5%
+            display: flex
+            justify-content: space-between
+            +maxwidth(1090px)
+                width: 20%
+            +maxwidth(880px)
+                width: 250px
+
+        &-summ
+            justify-content: center
+            width: 13.5%
+            +maxwidth(880px)
+                width: 250px
+                justify-content: flex-end
+
+        &-delContainer
+            +maxwidth(880px)
+                top: 270px
+                position: absolute
+                width: 250px
+                display: flex
+                justify-content: flex-end
+
+        &-delete
+            background: url("icons/close.svg") no-repeat center / cover
+            width: 20px
+            height: 20px
+            right: 0
+            cursor: pointer
+
+
+    &__total
+        width: 94%
+        margin-top: 30px
+        display: flex
+        justify-content: space-between
+        font: 300 22px/100% $waverly
+        color: $darkgray
+        +maxwidth($tablet)
+            max-width: calc(100% - 120px)
+            padding-left: 60px
+        +maxwidth(880px)
+            padding: 0 40px
+            max-width: 100%
+            flex-direction: column
+
+        &-result
+            font: bold 22px/100% $waverly
+            margin-top: 20px
+
+    &__button
+        display: flex
+        justify-content: flex-end
+        +maxwidth($tablet)
+            padding-right: 60px
+        +maxwidth(880px)
+            padding-right: 0
+            justify-content: center
+
+    &__form
+        width: 100%
+        top: 0
+        justify-content: center
+        align-items: center
+        position: fixed !important
+        display: none
+        z-index: 1050
+        outline: 0
+        opacity: 1
+
+    &__add, &__substract
+        width: 50px
+        height: 50px
+        cursor: pointer
+        position: relative
+        +maxwidth(880px)
+            width: 40px
+            height: 40px
+        &:after
+            content: ""
+            height: 100%
+            top: 0
+            left: 0
+            position: absolute
+            z-index: -1
+            background-color: rgba(0,82,71, 0.5)
+            width: 0
+            transition: width .3s cubic-bezier(.645,.045,.355,1)
+        &:hover:after
+            width: 100%
+    &__add
+        background: rgba(0,82,71, 0.8) url("icons/add.svg") no-repeat center / cover
+        background-size: 50%
+
+    &__substract
+        background: rgba(0,82,71, 0.8) url("icons/substract.svg") no-repeat center / cover
+        background-size: 50%
+
+    &__input
+        font: bold 24px/100% $waverly
+        text-align: center
+        height: 50px
+        max-width: 60px
+        border: none
+        outline: none
+        background: none
+        +maxwidth($tablet)
+            font: bold 22px/100% $waverly
+
+    &__sent
+        display: none
+        margin: 20%
+        text-align: center
+        font: bold 40px/100% $waverly
+        color: $white
+        +maxwidth($tablet)
+            font: bold 32px/100% $waverly
+        +maxwidth($mobail)
+            font: bold 24px/100% $waverly
+

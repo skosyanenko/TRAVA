@@ -1,6 +1,7 @@
 @import '../include/config'
 
 .wrapper
+
   &__socials
       width: 60px
       height: 180px
@@ -35,6 +36,7 @@
           +maxwidth($desktop)
               width: 50px
               height: 50px
+
           &.active
               @extend %active
           &:after
@@ -74,13 +76,27 @@
           &--cart
               background: url("icons/basket.svg") no-repeat center / contain
               width: 40px
+              transform: scale(1)
+              +maxwidth($tablet)
+                  width: 50px
+
+      &-summ
+          font: bold 18px/100% $waverly
+          color: $orange
+          position: absolute
+          z-index: 20
+          top: 10%
 
 .cart
     position: fixed
     right: 0
     bottom: 0
     +maxwidth($tablet)
+        width: 70px
+        height: 70px
         top: 0
+        z-index: 100
+
 
 
 

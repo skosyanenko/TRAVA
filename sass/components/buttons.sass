@@ -1,48 +1,6 @@
 @import '../include/config'
 
-.wrapper
-
-  &__button
-      width: fit-content
-      margin-top: 30px
-      padding-bottom: 5px
-      position: relative
-      font: 500 15px/100% $waverly
-      color: $black
-      transform: translateX(-20vw)
-      transition: all .5s ease
-      opacity: 0
-      cursor: pointer
-      +maxwidth($tablet)
-          margin-top: 25px
-          padding-bottom: 3px
-          font: 500 13px/100% $waverly
-      +maxwidth($mobail)
-          margin-top: 20px
-
-      &.active
-          @extend %active
-
-      &:before, &:after
-          content: ""
-          position: absolute
-          bottom: 0
-          left: 0
-          height: 2px
-
-      &:before
-          width: 100%
-          background-color: $gray
-
-      &:after
-          width: 0
-          background-color: $orange
-          transition: all .3s ease
-
-      &:hover:after
-          width: 100%
-
-.button
+.buttonContacts, .cartBtn, .buttonCart, .buttonBasket
     width: 200px
     height: 60px
     margin-top: 30px
@@ -50,8 +8,8 @@
     display: flex
     align-items: center
     justify-content: center
-    font: bold 25px/100% $waverly
-    color: $orange
+    font: 300 25px/100% $waverly
+    color: $white
     background: $green
     border: none
     cursor: pointer
@@ -59,9 +17,9 @@
     +maxwidth($desktop)
         width: 130px
         height: 50px
-        font: bold 20px/100% $waverly
+        font: 300 20px/100% $waverly
     +maxwidth($mobail)
-        font: bold 18px/100% $waverly
+        font: 300 18px/100% $waverly
         height: 40px
 
     &:after
@@ -77,18 +35,15 @@
 
     &:hover:after
         width: 100%
+    &:hover
+        color: $orange
 
-.button-basket
+.buttonBasket
     height: 50px
     width: 230px
     padding: 10px
     margin-top: auto
     cursor: pointer
-    font: 400 24px/100% $waverly
-    color: $orange
-    background: rgba(0,82,71, 0.8)
-    border: none
-    position: relative
     +maxwidth($tablet)
         font: 400 22px/100% $waverly
         margin-top: 30px
@@ -98,16 +53,162 @@
         margin-top: 20px
         font: 400 20px/100% $waverly
 
+.cartBtn
+    width: 250px
+.buttonCart
+    max-width: 250px
+    width: 100%
+
+.advantagesButton
+    width: 200px
+    height: 40px
+    display: flex
+    margin-right: 20px
+    justify-content: center
+    align-items: center
+    position: relative
+    background: rgba(255, 204, 115, 0.8)
+    cursor: pointer
+    +maxwidth(460px)
+        max-width: 100%
+    &:last-child
+        margin-right: 0
     &:after
         content: ""
+        width: 0
         height: 100%
         top: 0
         left: 0
         position: absolute
         z-index: -1
-        background-color: rgba(0,82,71, 0.5)
-        width: 0
+        background-color: rgba(255, 204, 115, 1)
         transition: width .3s cubic-bezier(.645,.045,.355,1)
+    &:hover:after
+        width: 100%
+    &.active-button
+        background-color: rgba(255, 204, 115, 1)
+
+.buttonIndex
+    width: fit-content
+    margin-top: 30px
+    padding-bottom: 5px
+    position: relative
+    font: 500 15px/100% $waverly
+    color: $black
+    transform: translateX(-20vw)
+    transition: all .5s ease
+    opacity: 0
+    cursor: pointer
+    +maxwidth($tablet)
+        margin-top: 25px
+        padding-bottom: 3px
+        font: 500 13px/100% $waverly
+    +maxwidth($mobail)
+        margin-top: 20px
+
+    &.active
+        @extend %active
+
+    &:before, &:after
+        content: ""
+        position: absolute
+        bottom: 0
+        left: 0
+        height: 2px
+
+    &:before
+        width: 100%
+        background-color: $gray
+
+    &:after
+        width: 0
+        background-color: $white
+        transition: all .3s ease
 
     &:hover:after
         width: 100%
+    &:hover
+        color: $orange
+
+
+.button--moema
+    outline: none
+    background: rgba(0,82,71,.9)
+    color: #fff
+    -webkit-transition: background-color 0.3s, color 0.3s
+    transition: background-color 0.3s, color 0.3s
+
+.button--moema.button--inverted
+    background: #ECEFF1
+    color:rgba(0,82,71,.9)
+
+.button--moema::before
+    content: ''
+    position: absolute
+    top: -20px
+    left: -20px
+    bottom: -20px
+    right: -20px
+    background: inherit
+    z-index: -1
+    opacity: 0.4
+    -webkit-transform: scale3d(0.8, 0.5, 1)
+    transform: scale3d(0.8, 0.5, 1)
+
+.button--moema:hover
+    -webkit-transition: background-color 0.1s 0.3s, color 0.1s 0.3s
+    transition: background-color 0.1s 0.3s, color 0.1s 0.3s
+    color: #ECEFF1
+    background-color: rgba(0,82,71,.9)
+    -webkit-animation: anim-moema-1 0.3s forwards
+    animation: anim-moema-1 0.3s forwards
+
+.button--moema.button--inverted:hover
+    color: #ECEFF1
+    background-color: rgba(0,82,71,.7)
+
+.button--moema:hover::before
+    -webkit-animation: anim-moema-2 0.3s 0.3s forwards
+    animation: anim-moema-2 0.3s 0.3s forwards
+
+@-webkit-keyframes anim-moema-1
+    60%
+        -webkit-transform: scale3d(0.8, 0.8, 1)
+        transform: scale3d(0.8, 0.8, 1)
+
+    85%
+        -webkit-transform: scale3d(1.1, 1.1, 1)
+        transform: scale3d(1.1, 1.1, 1)
+
+    100%
+        -webkit-transform: scale3d(1, 1, 1)
+        transform: scale3d(1, 1, 1)
+
+@keyframes anim-moema-1
+    60%
+        -webkit-transform: scale3d(0.8, 0.8, 1)
+        transform: scale3d(0.8, 0.8, 1)
+
+    85%
+        -webkit-transform: scale3d(1.1, 1.1, 1)
+        transform: scale3d(1.1, 1.1, 1)
+
+    100%
+        -webkit-transform: scale3d(1, 1, 1)
+        transform: scale3d(1, 1, 1)
+
+
+@-webkit-keyframes anim-moema-2
+    to
+        opacity: 0
+        -webkit-transform: scale3d(1, 1, 1)
+        transform: scale3d(1, 1, 1)
+
+
+@keyframes anim-moema-2
+    to
+        opacity: 0
+        -webkit-transform: scale3d(1, 1, 1)
+        transform: scale3d(1, 1, 1)
+
+

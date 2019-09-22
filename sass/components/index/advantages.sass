@@ -28,6 +28,7 @@
           opacity: 0
           +maxwidth($tablet)
               margin: 0 auto 30px
+
           &.active
               @extend %active
 
@@ -45,37 +46,9 @@
               font: 500 12px/100% $waverly
           +maxwidth(460px)
               max-width: 100%
+
           &.active
               opacity: 1
-
-      &-button
-          width: 200px
-          height: 40px
-          display: flex
-          margin-right: 20px
-          justify-content: center
-          align-items: center
-          position: relative
-          background: rgba(255, 204, 115, 0.8)
-          cursor: pointer
-          +maxwidth(460px)
-              max-width: 100%
-          &:last-child
-              margin-right: 0
-          &:after
-              content: ""
-              width: 0
-              height: 100%
-              top: 0
-              left: 0
-              position: absolute
-              z-index: -1
-              background-color: rgba(255, 204, 115, 1)
-              transition: width .3s cubic-bezier(.645,.045,.355,1)
-          &:hover:after
-              width: 100%
-          &.active-button
-              background-color: rgba(255, 204, 115, 1)
 
       &-range
           width: 100%
@@ -92,11 +65,13 @@
               flex-direction: column
           +maxwidth($min-width)
               margin-top: 25px
+
           &.range-none
               margin: 0
               height: 0
               opacity: 0
               overflow: hidden
+
           &.range-center
               justify-content: center
 
@@ -117,12 +92,13 @@
               width: 100%
               padding: 0
               margin: 0 auto 30px
+
           &.active
               @extend %active
           &:first-child
               padding-left: 0
 
-      &-column-img
+      &-columnImg
           width: 90px
           height: 90px
           border-radius: 50%
@@ -136,21 +112,27 @@
           +maxwidth($min-width)
               width: 60px
               height: 60px
+
           &.icon-1
               background: $green url("icons/hand.svg") no-repeat center / cover
               background-size: 60px
+
           &.icon-2
               background: $green url("icons/shipped.svg") no-repeat center / contain
               background-size: 60px
+
           &.icon-3
               background: $green url("icons/idea.svg") no-repeat center / contain
               background-size: 60px
+
           &.icon-4
               background: $green url("icons/plant.svg") no-repeat center / contain
               background-size: 60px
+
           &.icon-5
               background: $green url("icons/bouquet.svg") no-repeat center / contain
               background-size: 60px
+
           &.icon-1,  &.icon-2, &.icon-3, &.icon-4, &.icon-5
               +maxwidth($tablet)
                   background-size: 50px
@@ -159,7 +141,7 @@
               +maxwidth($min-width)
                   background-size: 30px
 
-      &-column-title
+      &-columnTitle
           margin-top: 30px
           font: bold 20px/100% $waverly
           color: $darkgray
@@ -170,7 +152,7 @@
               margin-top: 20px
               font: bold 16px/100% $waverly
 
-      &-column-text
+      &-columnText
           margin-top: 20px
           font: bold 15px/100% $waverly
           color: $darkgray

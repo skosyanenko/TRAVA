@@ -1,6 +1,7 @@
 @import '../include/config'
 
 .wrapper
+
   &__columns
       width: calc(100% - 220px)
       height: 100%
@@ -21,6 +22,7 @@
       animation: column .6s ease-in
       +maxwidth($tablet)
           width: calc(100% / 3)
+
       &.column-none
           +maxwidth($tablet)
               display: none

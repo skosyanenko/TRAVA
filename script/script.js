@@ -1,13 +1,49 @@
+let min,
+    max,
+    firstLoad = false,
+    itemsOnPage = 6,
+    plantsData = addDataToArray(plants),
+    $sliderRange = $("#slider-range"),
+    $catalog = $('.wrap__catalog'),
+    $paginationInner = $('.wrap__pagination-inner'),
+    options = {
+        range: true,
+        min: 100,
+        max: 600,
+        values: [100, 350],
+        step: 50,
+        slide: function (event, ui) {
+            let min = ui.values[0],
+                max = ui.values[1];
+            $("#amount").val(min + " ₽ - " + max + " ₽");
+            filters.minPrice = min;
+            filters.maxPrice = max;
+            initPagination(filterProducts(filters));
+            $('.wrap__catalog-elem').on('click', showModal('modal'));
+        }
+    },
+    filters = {
+        plant: '',
+        size: '',
+        minPrice: options.values[0],
+        maxPrice: options.values[1]
+    };
+
+if (window.pots && Object.keys(window.pots).length > 0) {
+    var potsData = addDataToArray(window.pots);
+}
+
 $(document).ready(function() {
 
+    // открытие/закрытие меню при клике на бургер-меню
     $('.burger').on('click', function(){
         $(this).toggleClass('open'); // меняется сам бургер
         if ($(window).width() <= 991) {
-            if ($('.search-inner__columns').hasClass('flex')) {
+            if ($('.searchInner__columns').hasClass('flex')) {
                 toggleColumns('close');
                 $(this).addClass('open');
             } else {
-                $('.mobile-menu').toggleClass('show');
+                $('.mobileMenu').toggleClass('show');
             }
         } else {
             let time = 0;
@@ -18,6 +54,7 @@ $(document).ready(function() {
         }
     });
 
+    // ссылки на страницы по соответствующему названию
     $('.nav-link').on('click', function() {
         let href = $(this).attr('href');
         $([document.documentElement, document.body]).animate({
@@ -39,7 +76,7 @@ $(document).ready(function() {
 
             // проверяем, если этот элемент принадлежит к тем,
             // которые внизу страницы, то увеличиваем разницу diff
-            ($(el).hasClass('wrapper__advantages-column') || $(el).hasClass('footer-wrapper') || $(el).hasClass('wrapper__socials-wrap')) ? diff = 1100 : '';
+            ($(el).hasClass('wrapper__advantages-column') || $(el).hasClass('footerWrapper') || $(el).hasClass('wrapper__socials-wrap')) ? diff = 1100 : '';
 
             if (windowScroll >= elementTop - diff) {
                 setTimeout(() => {
@@ -49,12 +86,8 @@ $(document).ready(function() {
         });
     });
 
-    $('.wrap__pagination-inner a').on('click', function() {
-        $(this).siblings().removeClass('wrap__pagination-active');
-        $(this).addClass('wrap__pagination-active');
-    });
-
-    $('.wrapper__advantages-button').on('click', function(){
+    // смена табов на главной странице при клике на кнопки
+    $('.advantagesButton').on('click', function(){
         let btnFlag = 'active-button';
 
         setTimeout(() => $(window).trigger('scroll'), 10);
@@ -62,7 +95,7 @@ $(document).ready(function() {
         if(!$(this).hasClass(btnFlag)) {
             $('.wrapper__advantages-range').toggleClass('range-none')
         }
-        $('.wrapper__advantages-button').removeClass(btnFlag);
+        $('.advantagesButton').removeClass(btnFlag);
         $(this).addClass(btnFlag);
     });
 

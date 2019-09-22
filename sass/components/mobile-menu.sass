@@ -1,6 +1,6 @@
 @import '../include/config'
 
-.mobile-menu
+.mobileMenu
     min-height: 60vh
     max-width: 100vw
     top: 70px
@@ -17,6 +17,7 @@
     transition: all .3s ease
     +maxwidth($tablet)
         display: flex
+
     &.show
         transform: translateY(0)
 
@@ -28,11 +29,13 @@
         align-items: center
         &:first-child
             margin-top: 0
+
         .nav-link
             margin-bottom: 0
 
     &__social
         display: flex
+
         .wrapper__socials-wrap
             margin-right: 15px
             &:last-child
@@ -42,4 +45,7 @@
         margin-top: 30px
         margin-bottom: 0
         cursor: pointer
+
+
+
 

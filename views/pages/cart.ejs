@@ -3,13 +3,15 @@
 <% include ../parts/head %>
 <body>
     <div class="wrapper">
-        <% include ../parts/leftMenu %>
+        <% include ../parts/menu %>
         <% include ../parts/socials %>
         <main class="wrap-cart">
             <% include ../parts/columns %>
             <% include ../parts/cart/cart %>
         </main>
     </div>
+    <script>window.pots = <%- pots %></script>
+    <% include ../parts/cart/cartForm %>
     <% include ../parts/footer %>
 </body>
 </html>

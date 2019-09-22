@@ -3,14 +3,16 @@
 <% include ../parts/head %>
 <body>
     <div class="wrapper">
-        <% include ../parts/leftMenu %>
+        <% include ../parts/menu %>
         <% include ../parts/socials %>
         <main class="wrap" id="plants-page">
             <% include ../parts/columns %>
             <% include ../parts/catalog-plants/catalogPlantsTitle %>
             <% include ../parts/catalog-plants/catalogFilters %>
             <section class="wrap__catalog" data-anim="1.2"></section>
-            <% include ../parts/pagination %>
+            <div class="wrap__pagination">
+                <div class="wrap__pagination-inner"></div>
+            </div>
         </main>
     </div>
     <% include ../parts/footer %>

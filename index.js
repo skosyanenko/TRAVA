@@ -20,7 +20,7 @@ app.get('/contacts', (req,res) => res.render('pages/contacts', {plants}));
 app.get('/catalog-plants', (req,res) => res.render('pages/catalog-plants', {plants}));
 app.get('/catalog-pots', (req,res) => res.render('pages/catalog-pots', {plants, pots}));
 app.get('/about', (req,res) => res.render('pages/about', {plants}));
-app.get('/cart', (req,res) => res.render('pages/cart', {plants}));
+app.get('/cart', (req,res) => res.render('pages/cart', {plants, pots}));
 
 app.post('/send-email', function (req, res) {
     let transporter = nodeMailer.createTransport({

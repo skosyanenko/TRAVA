@@ -1,6 +1,6 @@
 @import '../include/config'
 
-.search-inner
+.searchInner
     width: calc(100% - 280px)
     height: 100vh
     padding: 60px 30px
@@ -19,6 +19,7 @@
         padding: 0
         margin-top: 60px
         margin-bottom: 120px
+
     &.active
         @extend %active
 
@@ -41,10 +42,12 @@
         transform: translateY(101%)
         transition: all .5s ease
         opacity: 0
+
         &.active
             @extend %active
         +maxwidth($tablet)
             width: calc(100% / 3)
+
         &.column-none
             +maxwidth($tablet)
                 display: none
@@ -58,13 +61,14 @@
         transform: translateY(-10%)
         transition: all .5s ease
         opacity: 0
-        &.active
-            @extend %active
         +maxwidth($desktop)
             height: 60px
         +maxwidth($tablet)
             width: 70%
             margin-bottom: 20px
+
+        &.active
+            @extend %active
 
         &-input
             width: 100%
@@ -89,6 +93,7 @@
             position: absolute
             opacity: 0.8
             cursor: pointer
+
             &.active
                 right: 20px
 
@@ -101,14 +106,6 @@
         align-items: flex-start
         +maxwidth($tablet)
             overflow-y: scroll
-
-        h2
-            width: 100%
-            margin-top: 60px
-            text-align: center
-            font: bold 30px/100% $waverly
-            color: $white
-
 
 
 

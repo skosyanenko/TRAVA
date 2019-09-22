@@ -1,4 +1,4 @@
-// стилизация селектов
+// функция стилизации селектов
 function styledSelect(selector) {
     $(selector).each(function () {
         let $this = $(this),
@@ -14,7 +14,7 @@ function styledSelect(selector) {
 
         $this.hide();
         $this.wrap('<div class="select"></div>');
-        console.log(selectOption.eq(0).text());
+
         $('<div>', {
             class: 'select__gap',
             text: selectOption.eq(0).text()
@@ -49,8 +49,6 @@ function styledSelect(selector) {
 
                 selectItem.on('click', function () {
                     let chooseItem = $(this).data('value'),
-                        $catalog = $('.wrap__catalog'),
-                        filterValue = '',
                         $this = $(this),
                         $buttonGroup = $this.parents('.wrap__menu-container'),
                         filterGroup = $buttonGroup.attr('data-filter-group');
@@ -60,8 +58,8 @@ function styledSelect(selector) {
 
                     if ($this.parents('.wrap__menu-container').length) {
                         filters[filterGroup] = $this.data('value');
-                        filterValue = concatValues(filters);
-                        $catalog.isotope({filter: filterValue});
+                        initPagination(filterProducts(filters));
+                        $('.wrap__catalog-elem').on('click', showModal('modal'));
                     }
 
                     selectList.slideUp(dur);
