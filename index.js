@@ -58,6 +58,6 @@ app.use(express.static(__dirname + '/fonts'));
 app.use(express.static(__dirname + '/node_modules'));
 
 app.use('/', router);
-app.listen(process.env.port || 3000)
+app.listen(process.env.PORT || 80);
 
 console.log('Running at Port 5000');
