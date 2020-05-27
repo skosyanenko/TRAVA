@@ -18,12 +18,6 @@ $(document).ready(function() {
     // инициализация ползунка цены
     initPriceSlider();
 
-    // подгрузка элементов в модальное окно из JSON
-    $('.wrap__catalog-elem').on('click', showModal('modal'));
-    $('.wrap__catalog-el').on('click', showModal('mdl'));
-
-    // закрыть модальное окно по клику вне окна или на крестик
-    $(document).on('mouseup', closeModal);
 });
 
 // рендер пагинации

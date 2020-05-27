@@ -19,7 +19,6 @@ let min,
             filters.minPrice = min;
             filters.maxPrice = max;
             initPagination(filterProducts(filters));
-            $('.wrap__catalog-elem').on('click', showModal('modal'));
         }
     },
     filters = {
@@ -34,6 +33,12 @@ if (window.pots && Object.keys(window.pots).length > 0) {
 }
 
 $(document).ready(function() {
+    // подгрузка элементов в модальное окно из JSON
+    $('.wrap__catalog-elem').on('click', showModal('modal'));
+    $('.wrap__catalog-el').on('click', showModal('mdl'));
+
+    // закрыть модальное окно по клику вне окна или на крестик
+    $(document).on('mouseup', closeModal);
 
     // открытие/закрытие меню при клике на бургер-меню
     $('.burger').on('click', function(){
